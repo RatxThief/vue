@@ -3,72 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic vue</title>
-</head>
-<body>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
-    <div id="app">
-        <p id="msg">{{message}}</p>
-        <img src="https://static.vecteezy.com/system/resources/previews/015/867/063/original/art-illustration-of-cute-cartoon-watermelon-flat-cartoon-style-icon-vector.jpg" alt="Watermelon picture" class="watermelon">
-    
-        <span class="themes">
-            <button @click="change_black">Black theme</button>
-            <button @click="change_white">White theme</button>
-        </span>
-        <p class="theme_show">{{theme}}</p>
-        <p id="explain">{{explanation}}</p>
-        <div class="" id="value">{{counter}}</div>
-        <div id="buttons">
-            <button @click="plus" class="bplus">+</button>
-            <button @click="minus" class="bminus">-</button><br>
-            <button @click="reset" class="breset">Reset</button><br>
-        </div>
-    </div>
-    <script>
-        const {createApp} = Vue
-        
-        createApp({
-            data: () => ({
-                message: "This is a basic vue template outcome",
-                explanation: "Press the buttons to add, substract or reset the value",
-                counter: 0,
-                theme: 'The site is now in bright mode'
-            }),
-            methods:{
-                plus(){
-                    this.counter++
-                },
-                minus(){
-                    this.counter--
-                },
-                reset(){
-                    this.counter = 0
-                },
-                change_black(){
-                    this.theme = 'The site is now in dark mode'
-                },
-                change_white(){
-                    this.theme = 'The site is now in bright mode'
-                }
-            },
-        }).mount('#app')
-    </script>
-
+    <title>Basic vue site</title>
     <style>
         body{
-            background-color:beige
+            background-color:#EED9B5
         }
-        .watermelon{
+        #watermelon{
             width: 80px;
-            display: flex;
+            display:block;
+            position: right;
         }
         .themes{
             display: flex;
             flex-direction: row;
             justify-content: space-around;
         }
-        .theme_show{
+        #theme_show{
             display: flex;
             justify-content: center;
         }
@@ -98,8 +48,11 @@
             width: 60px;
         }
         #buttons{
-            margin-block: 10px;
-            text-align: center;
+            display: flex;
+            flex-wrap: wrap column;
+            height: 30px;
+            justify-items: center;
+            
         }
         #value{
             background-color: antiquewhite;
@@ -107,5 +60,63 @@
         }
 
     </style>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <div id="app">
+        <p id="msg">{{message}}</p>
+        <div id="pic">
+            <img src="https://static.vecteezy.com/system/resources/previews/015/867/063/original/art-illustration-of-cute-cartoon-watermelon-flat-cartoon-style-icon-vector.jpg" alt="Watermelon picture" id="watermelon">
+        </div>
+        <div>
+            <p id="theme_show">{{theme}}</p>
+        </div>
+        <span class="themes">
+            <button @click="change_black">Black theme</button>
+            <button @click="change_white" class="white">White theme</button>
+        </span>
+        <p id="explain">{{explanation}}</p>
+        <div class="" id="value">{{counter}}</div>
+        <div id="buttons">
+            <button @click="plus" class="bplus">+</button>
+            <button @click="minus" class="bminus">-</button><br>
+            <button @click="reset" class="breset">Reset</button><br>
+        </div>
+    </div>
+    <script>
+        const {createApp} = Vue
+        
+        createApp({
+            data: () => ({
+                message: "This is a basic vue template outcome",
+                explanation: "Press the buttons to add, subtract or reset the value",
+                counter: 0,
+                theme: 'The site is now in bright mode'
+            }),
+            methods:{
+                plus(){
+                    this.counter++
+                },
+                minus(){
+                    this.counter--
+                },
+                reset(){
+                    this.counter = 0
+                },
+                change_white(){
+                    this.theme = 'The site is now in bright mode'
+                    document.body.style.backgroundColor = "#EED9B5"
+                    document.getElementById("value").style.color = "#3F0D52"
+                },
+                change_black(){
+                    this.theme = 'The site is now in dark mode'
+                    document.body.style.backgroundColor = "#002538"
+                    document.getElementById("value").style.color = "#C354EB"
+                    document.getElementById("theme_show").style.color = "#C354EB"
+                }
+            }
+        }).mount('#app')
+    </script>
 </body>
 </html>
