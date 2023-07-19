@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic vue</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <div id="app">
+        <p id="msg">{{message}}</p>
+        <img src="https://static.vecteezy.com/system/resources/previews/015/867/063/original/art-illustration-of-cute-cartoon-watermelon-flat-cartoon-style-icon-vector.jpg" alt="Watermelon picture" class="watermelon">
+    
+        <span class="themes">
+            <button @click="change_black">Black theme</button>
+            <button @click="change_white">White theme</button>
+        </span>
+        <p class="theme_show">{{theme}}</p>
+        <p id="explain">{{explanation}}</p>
+        <div class="" id="value">{{counter}}</div>
+        <div id="buttons">
+            <button @click="plus" class="bplus">+</button>
+            <button @click="minus" class="bminus">-</button><br>
+            <button @click="reset" class="breset">Reset</button><br>
+        </div>
+    </div>
+    <script>
+        const {createApp} = Vue
+        
+        createApp({
+            data: () => ({
+                message: "This is a basic vue template outcome",
+                explanation: "Press the buttons to add, substract or reset the value",
+                counter: 0,
+                theme: 'The site is now in bright mode'
+            }),
+            methods:{
+                plus(){
+                    this.counter++
+                },
+                minus(){
+                    this.counter--
+                },
+                reset(){
+                    this.counter = 0
+                },
+                change_black(){
+                    this.theme = 'The site is now in dark mode'
+                },
+                change_white(){
+                    this.theme = 'The site is now in bright mode'
+                }
+            },
+        }).mount('#app')
+    </script>
+
+    <style>
+        body{
+            background-color:beige
+        }
+        .watermelon{
+            width: 80px;
+            display: flex;
+        }
+        .themes{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        .theme_show{
+            display: flex;
+            justify-content: center;
+        }
+        #msg{
+            color: #F09507;
+            background-color: #025AA3;
+            text-align: left;
+        }
+        #explain{
+            color: #42FF65;
+            background-color: #F5274B;
+            text-align: center;
+        }
+        #value{
+            text-align: center;
+        }
+        .bplus{
+            font-size: 15px;
+            width: 30px
+        }
+        .bminus{
+            font-size: 15px;
+            width: 30px;
+        }
+        .breset{
+            font-size: 15px;
+            width: 60px;
+        }
+        #buttons{
+            margin-block: 10px;
+            text-align: center;
+        }
+        #value{
+            background-color: antiquewhite;
+            font-size: 60px;
+        }
+
+    </style>
+</body>
+</html>
