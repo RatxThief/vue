@@ -19,20 +19,18 @@
             justify-content: space-around;
         }
         #theme_show{
+            color: #3F0D52;
             display: flex;
             justify-content: center;
         }
         #msg{
-            color: #F09507;
-            background-color: #025AA3;
+            color: #8DF533;
+            background-color: #F5274B;
             text-align: left;
         }
         #explain{
-            color: #42FF65;
-            background-color: #F5274B;
-            text-align: center;
-        }
-        #value{
+            color: #8DF5B8;
+            background-color: #025AA3;
             text-align: center;
         }
         .bplus{
@@ -48,15 +46,16 @@
             width: 60px;
         }
         #buttons{
-            display: flex;
-            flex-wrap: wrap column;
+            display: block;
+            text-align: center;
             height: 30px;
-            justify-items: center;
             
         }
         #value{
-            background-color: antiquewhite;
+            background-color: #faebd7;
+            color: #3F0D52;
             font-size: 60px;
+            text-align: center;
         }
 
     </style>
@@ -74,7 +73,7 @@
         </div>
         <span class="themes">
             <button @click="change_black">Black theme</button>
-            <button @click="change_white" class="white">White theme</button>
+            <button @click="change_white">White theme</button>
         </span>
         <p id="explain">{{explanation}}</p>
         <div class="" id="value">{{counter}}</div>
@@ -107,13 +106,24 @@
                 change_white(){
                     this.theme = 'The site is now in bright mode'
                     document.body.style.backgroundColor = "#EED9B5"
+                    document.getElementById("theme_show").style.color = "#3F0D52"
                     document.getElementById("value").style.color = "#3F0D52"
+                    document.getElementById("value").style.backgroundColor = "#faebd7"
+                    document.getElementById("explain").style.backgroundColor = "#025AA3"
+                    document.getElementById("msg").style.color = "#8DF5B8"
+                    document.getElementById("msg").style.backgroundColor = "#F5274B"
+                    document.getElementById("msg").style.color = "#8DF533"
                 },
                 change_black(){
                     this.theme = 'The site is now in dark mode'
+                    document.getElementById("theme_show").style.color = "#C354EB"
                     document.body.style.backgroundColor = "#002538"
                     document.getElementById("value").style.color = "#C354EB"
-                    document.getElementById("theme_show").style.color = "#C354EB"
+                    document.getElementById("value").style.backgroundColor = "#063E59"
+                    document.getElementById("explain").style.backgroundColor = "#F5274B"
+                    document.getElementById("explain").style.color = "#8DF533"
+                    document.getElementById("msg").style.backgroundColor = "#025AA3"
+                    document.getElementById("msg").style.color = "#8DF5B8"
                 }
             }
         }).mount('#app')
