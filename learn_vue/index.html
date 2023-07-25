@@ -8,29 +8,48 @@
         body{
             background-color:#EED9B5
         }
+        .body_dark{
+            color: #8DF533;
+            background-color: #002538;
+        }
         #watermelon{
             width: 80px;
             display:block;
-            position: right;
+            position: relative;
         }
         .themes{
             display: flex;
             flex-direction: row;
             justify-content: space-around;
+
         }
-        #theme_show{
+        .theme_show{
             color: #3F0D52;
             display: flex;
             justify-content: center;
         }
-        #msg{
+        .theme_show_dark{
+            color: #C354EB;
+            display: flex;
+            justify-content: center;
+        }
+        .msg{
             color: #8DF533;
             background-color: #F5274B;
             text-align: left;
         }
-        #explain{
+        .msg_dark{
             color: #8DF5B8;
             background-color: #025AA3;
+        }
+        .explain{
+            color: #8DF5B8;
+            background-color: #025AA3;
+            text-align: center;
+        }
+        .explain_dark{
+            color: #8DF533;
+            background-color: #F5274B;
             text-align: center;
         }
         .bplus{
@@ -51,32 +70,37 @@
             height: 30px;
             
         }
-        #value{
+        .value{
             background-color: #faebd7;
             color: #3F0D52;
+            font-size: 60px;
+            text-align: center;
+        }
+        .value_dark{
+            background-color: #063E59;
+            color: #C354EB;
             font-size: 60px;
             text-align: center;
         }
 
     </style>
 </head>
-<body>
+<body id="cialo">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
     <div id="app">
-        <p id="msg">{{message}}</p>
+        <p id="msg_id" class="msg">{{message}}</p>
         <div id="pic">
             <img src="https://static.vecteezy.com/system/resources/previews/015/867/063/original/art-illustration-of-cute-cartoon-watermelon-flat-cartoon-style-icon-vector.jpg" alt="Watermelon picture" id="watermelon">
         </div>
         <div>
-            <p id="theme_show">{{theme}}</p>
+            <p id="theme_show" class="theme_show">The site is now in {{theme}} mode</p>
         </div>
         <span class="themes">
-            <button @click="change_black">Black theme</button>
-            <button @click="change_white">White theme</button>
+            <button @click="change_theme" id="button_theme">{{button_theme}} theme</button>
         </span>
-        <p id="explain">{{explanation}}</p>
-        <div class="" id="value">{{counter}}</div>
+        <p id="explain_id" class="explain">{{explanation}}</p>
+        <div id="value_id" class="value">{{counter}}</div>
         <div id="buttons">
             <button @click="plus" class="bplus">+</button>
             <button @click="minus" class="bminus">-</button><br>
@@ -91,7 +115,8 @@
                 message: "This is a basic vue template outcome",
                 explanation: "Press the buttons to add, subtract or reset the value",
                 counter: 0,
-                theme: 'The site is now in bright mode'
+                theme: 'bright',
+                button_theme: 'Dark'
             }),
             methods:{
                 plus(){
@@ -103,27 +128,32 @@
                 reset(){
                     this.counter = 0
                 },
-                change_white(){
-                    this.theme = 'The site is now in bright mode'
-                    document.body.style.backgroundColor = "#EED9B5"
-                    document.getElementById("theme_show").style.color = "#3F0D52"
-                    document.getElementById("value").style.color = "#3F0D52"
-                    document.getElementById("value").style.backgroundColor = "#faebd7"
-                    document.getElementById("explain").style.color = "#8DF5B8"
-                    document.getElementById("explain").style.backgroundColor = "#025AA3"
-                    document.getElementById("msg").style.color = "#8DF533"
-                    document.getElementById("msg").style.backgroundColor = "#F5274B"
-                },
-                change_black(){
-                    this.theme = 'The site is now in dark mode'
-                    document.getElementById("theme_show").style.color = "#C354EB"
-                    document.body.style.backgroundColor = "#002538"
-                    document.getElementById("value").style.color = "#C354EB"
-                    document.getElementById("value").style.backgroundColor = "#063E59"
-                    document.getElementById("explain").style.backgroundColor = "#F5274B"
-                    document.getElementById("explain").style.color = "#8DF533"
-                    document.getElementById("msg").style.backgroundColor = "#025AA3"
-                    document.getElementById("msg").style.color = "#8DF5B8"
+                change_theme(){
+                    var body_switch = document.getElementById("cialo")
+                    var message_switch = document.getElementById("msg_id")
+                    var explain_switch = document.getElementById("explain_id")
+                    var thm_name = document.getElementById("buton_theme")
+                    var value_switch = document.getElementById("value_id")
+                    var theme_msg = document.getElementById("theme_show")
+                    body_switch.classList.toggle("body_dark")
+                    message_switch.classList.toggle("msg_dark")
+                    explain_switch.classList.toggle("explain_dark")
+                    value_switch.classList.toggle("value_dark")
+                    theme_msg.classList.toggle("theme_show_dark")
+                    if(this.theme == 'bright')
+                    {
+                        this.theme = 'dark'
+                    }
+                    else{
+                        this.theme = 'bright'
+                    }
+                    if(this.button_theme == 'Dark')
+                    {
+                        this.button_theme = 'Bright'
+                    }
+                    else{
+                        this.button_theme = 'Dark'
+                    }
                 }
             }
         }).mount('#app')
