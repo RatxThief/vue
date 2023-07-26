@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <div id="gallery_div">
+        <p id="msg_id" class="msg">{{message}}</p>
+        <div class="top_nav">
+            <a href="index.html">Home</a>
+            <a href="#gallery" class="active">Gallery</a>
+            <a href="#about">About me</a>
+        </div>
+
+        <span class="themes">
+            <button @click="change_theme" id="button_theme">{{button_theme}} theme</button>
+        </span>
+        <p>This is basic text to check {{mess}}</p>
+
+
+
+
+
+    </div>
+
+    <script>
+        const {createApp} = Vue
+        
+        createApp({
+            data: () => ({
+                message: "Welcome to the gallery, here you'll see some nice rats",
+                button_theme: "Dark",
+                mess: 'does it work?'
+
+            })
+        }).mount('#gallery_div')
+    </script>
+    <style>
+        body{
+                background-color:#D3F5CF;
+                color: #635EE2;
+            }
+        .body_dark{
+            color: #8DF533;
+            background-color: #002538;
+        }
+        .top_nav{
+            overflow: hidden;
+            float: center;
+        }
+        .top_nav a{
+            color: #F5274B;
+            float: left;
+            text-align: center;
+            padding: 1%;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .top_nav a:hover{
+            background-color: #025AA3;
+            color: #C354EB;
+        }
+        .top_nav a.active{
+            background-color:#3F0D52;
+            color: #C354EB;
+        }
+        .themes{
+                display: flex;
+                justify-content: flex-end;
+                padding-right: 2%;
+                padding-top: 1%;
+    
+            }
+
+    </style>
+</body>
+</html>

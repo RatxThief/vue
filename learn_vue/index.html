@@ -4,135 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basic vue site</title>
-    <style>
-        body{
-            background-color:#EED9B5
-        }
-        .body_dark{
-            color: #8DF533;
-            background-color: #002538;
-        }
-        .top_nav{
-            overflow: hidden;
-            float: center;
-        }
-        .top_nav a{
-            color: #F5274B;
-            float: left;
-            text-align: center;
-            padding: 1%;
-            text-decoration: none;
-            font-size: 14px;
-        }
-        .top_nav a:hover{
-            background-color: #025AA3;
-            color: #C354EB;
-        }
-        .top_nav a.active{
-            background-color:#3F0D52;
-            color: #C354EB;
-        }
-        .watermelon{
-            width: 80px;
-            display:block;
-            position: relative;
-            left: 3%;
-        }
-        .themes{
-            display: flex;
-            justify-content: flex-end;
-            padding-right: 2%;
-            padding-top: 1%;
 
-        }
-        .theme_show{
-            display: flex;
-            justify-content: center;
-        }
-        .theme_show_dark{
-            color: #C354EB;
-            display: flex;
-            justify-content: center;
-        }
-        .msg{
-            color: #8DF533;
-            background-color: #F5274B;
-            text-align: left;
-        }
-        .msg_dark{
-            color: #8DF5B8;
-            background-color: #025AA3;
-            text-align: left;
-        }
-        .explain{
-            color: #8DF5B8;
-            background-color: #025AA3;
-            text-align: center;
-        }
-        .explain_dark{
-            color: #8DF533;
-            background-color: #F5274B;
-            text-align: center;
-        }
-        .bplus{
-            font-size: 15px;
-            width: 30px
-        }
-        .bminus{
-            font-size: 15px;
-            width: 30px;
-        }
-        .breset{
-            font-size: 15px;
-            width: 60px;
-        }
-        #buttons{
-            text-align: center;
-            height: 30px;
-            position: relative;
-            padding-top: 1%;
-        }
-        .value{
-            background-color: #faebd7;
-            color: #3F0D52;
-            font-size: 60px;
-            text-align: center;
-        }
-        .value_dark{
-            background-color: #063E59;
-            color: #C354EB;
-            font-size: 60px;
-            text-align: center;
-        }
-        #table_head{
-            padding-top: 3%;
-            text-align: center;
-        }
-        .table_box{
-            position: relative;
-            padding-top: 4%;
-            padding-bottom: 3%;
-        }
-        .table{
-            width: 60%;
-            text-align: center;
-            margin-left: auto;
-            margin-right: auto;
-            border-collapse: collapse;
-        }
-        th, td{
-            border: 2px solid black;
-            justify-content: center;
-        }
-        a:link, a:visited{
-            color:#F5274B; 
-            text-decoration: none;
-        }
-        footer{
-            text-align: end;
-        }
-
-    </style>
 </head>
 <body id="cialo">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -141,7 +13,7 @@
         <p id="msg_id" class="msg">{{message}}</p>
         <div class="top_nav">
             <a class="active" href="#home">Home</a>
-            <a href="#gallery">Gallery</a>
+            <a href="gallery.html">Gallery</a>
             <a href="#about">About me</a>
         </div>
         <div id="pic">
@@ -258,5 +130,135 @@
             }
         }).mount('#app')
     </script>
+        <style>
+            body{
+                background-color:#D3F5CF;
+                color: #635EE2;
+            }
+            .body_dark{
+                color: #8DF533;
+                background-color: #002538;
+            }
+            .top_nav{
+                overflow: hidden;
+                float: center;
+            }
+            .top_nav a{
+                color: #F5274B;
+                float: left;
+                text-align: center;
+                padding: 1%;
+                text-decoration: none;
+                font-size: 14px;
+            }
+            .top_nav a:hover{
+                background-color: #025AA3;
+                color: #C354EB;
+            }
+            .top_nav a.active{
+                background-color:#3F0D52;
+                color: #C354EB;
+            }
+            .watermelon{
+                width: 80px;
+                display:block;
+                position: relative;
+                left: 3%;
+            }
+            .themes{
+                display: flex;
+                justify-content: flex-end;
+                padding-right: 2%;
+                padding-top: 1%;
+    
+            }
+            .theme_show{
+                display: flex;
+                justify-content: center;
+            }
+            .theme_show_dark{
+                color: #C354EB;
+                display: flex;
+                justify-content: center;
+            }
+            .msg{
+                color: #8DF533;
+                background-color: #F5274B;
+                text-align: left;
+            }
+            .msg_dark{
+                color: #8DF5B8;
+                background-color: #025AA3;
+                text-align: left;
+            }
+            .explain{
+                color: #8DF5B8;
+                background-color: #025AA3;
+                text-align: center;
+            }
+            .explain_dark{
+                color: #8DF533;
+                background-color: #F5274B;
+                text-align: center;
+            }
+            .bplus{
+                font-size: 15px;
+                width: 30px
+            }
+            .bminus{
+                font-size: 15px;
+                width: 30px;
+            }
+            .breset{
+                font-size: 15px;
+                width: 60px;
+            }
+            #buttons{
+                text-align: center;
+                height: 30px;
+                position: relative;
+                padding-top: 1%;
+            }
+            .value{
+                background-color: #faebd7;
+                color: #3F0D52;
+                font-size: 60px;
+                text-align: center;
+            }
+            .value_dark{
+                background-color: #063E59;
+                color: #C354EB;
+                font-size: 60px;
+                text-align: center;
+            }
+            #table_head{
+                padding-top: 3%;
+                text-align: center;
+            }
+            .table_box{
+                position: relative;
+                padding-top: 4%;
+                padding-bottom: 3%;
+            }
+            .table{
+                width: 60%;
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+                border-collapse: collapse;
+            }
+            th, td{
+                border: 2px solid black;
+                justify-content: center;
+            }
+            a:link, a:visited{
+                color:#F5274B; 
+                text-decoration: none;
+            }
+            footer{
+                text-align: end;
+            }
+    
+        </style>
 </body>
 </html>
